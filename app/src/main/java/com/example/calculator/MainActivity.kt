@@ -79,11 +79,11 @@ fun Greeting(name: String) {
 fun Card() {
     Card(
         modifier = Modifier
-            .padding(PaddingValues(Dp(5F)))
+            .padding(PaddingValues(Dp(8F)))
             .border(Dp(2F), Color.Black, RectangleShape)
             .fillMaxWidth(),
         backgroundColor = Color.Cyan,
-        elevation = Dp(60F),
+        elevation = Dp(70F),
     )
     {
         Greeting("Android")
@@ -109,7 +109,7 @@ fun CustomButton(
         Text(
             text = txt,
             fontSize = 36.sp,
-            color = color
+            color = Color.Black
         )
     }
 }
@@ -128,25 +128,62 @@ fun DefaultPreview() {
                 Row() {
                     Card()
                 }
-                Row() {
-                    Column(modifier = Modifier.padding(10.dp))  {
-                        for(i in DataClass.button_int_list) {
-
-                            Button(
-                                onClick = {},
-                                modifier = Modifier
-                                    .weight(weight = 5f + i.toFloat(), fill = false,)
-                                    .padding(5.dp)
-
-
-
-
-                            )
-                            {
-                                Text(text = i)
-                            }
-                        }
+                Row(modifier = Modifier.fillMaxSize(),) {
+                    CustomButton("1",
+                        mod=Modifier
+                            .weight(weight = 2f, fill = false,)
+                            .padding(PaddingValues(5.dp)),
+                        onClick = {}
+                    )
+                    CustomButton("2",
+                        mod=Modifier
+                            .weight(weight = 30f, fill = false,)
+                            .padding(5.dp),
+                        onClick = {}
+                    )
+                    CustomButton("3",
+                        mod=Modifier
+                            .weight(weight = 2f, fill = false,)
+                            .padding(5.dp),
+                        onClick = {}
+                    )
+                    CustomButton("X",
+                        mod=Modifier
+                            .weight(weight = 2f, fill = false,)
+                            .padding(5.dp),
+                        onClick = {}
+                    )
                     }
+               Row(modifier = Modifier.fillMaxSize(),) {
+                   CustomButton("4",
+                       mod=Modifier
+                           .weight(weight = 2f, fill = false,)
+                           .padding(5.dp),
+                       onClick = {}
+                   )
+                   CustomButton("5",
+                       mod=Modifier
+                           .weight(weight = 2f, fill = false,)
+                           .padding(5.dp),
+                       onClick = {}
+                   )
+                   CustomButton("6",
+                       mod=Modifier
+                           .weight(weight = 2f, fill = false,)
+                           .padding(5.dp),
+                       onClick = {}
+                   )
+                   CustomButton("/",
+                       mod=Modifier
+                           .weight(weight = 2f, fill = false,)
+                           .padding(5.dp),
+                       onClick = {}
+                   )
+               }
+
+
+
+
                 }
 
 //                    for(i in DataClass.button_sign_list){
@@ -161,4 +198,3 @@ fun DefaultPreview() {
             }
 
         }
-}
