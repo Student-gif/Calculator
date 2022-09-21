@@ -8,7 +8,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
+
+
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -23,32 +24,32 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.calculator.ui.theme.CalculatorTheme
 
-class DataClass()
-{
-    // Buttons text
-    companion object{
-        val button_sign_list = listOf(
-            "*",
-            "+",
-            "-",
-            "/",
-            "%",
-        )
-        val button_int_list  = listOf(
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9"
-        )
-    }
-    /////////
-}
+//class DataClass()
+//{
+//    // Buttons text
+//    companion object{
+//        val button_sign_list = listOf(
+//            "*",
+//            "+",
+//            "-",
+//            "/",
+//            "%",
+//        )
+//        val button_int_list  = listOf(
+//            "0",
+//            "1",
+//            "2",
+//            "3",
+//            "4",
+//            "5",
+//            "6",
+//            "7",
+//            "8",
+//            "9"
+//        )
+//    }
+//    /////////
+//}
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +59,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    color = MaterialTheme.colors.onSecondary
                 ) {
                     Greeting("Android")
                 }
@@ -78,12 +79,15 @@ fun Greeting(name: String) {
 @Composable
 fun Card() {
     Card(
+
         modifier = Modifier
-            .padding(PaddingValues(Dp(8F)))
-            .border(Dp(2F), Color.Black, RectangleShape)
-            .fillMaxWidth(),
+            .padding(24.dp)
+            .fillMaxWidth()
+            .border(Dp(2F), Color.Black, RectangleShape),
+
         backgroundColor = Color.Cyan,
         elevation = Dp(70F),
+
     )
     {
         Greeting("Android")
@@ -92,28 +96,97 @@ fun Card() {
 @Composable
 fun CustomButton(
     txt:String,
-    mod:Modifier,
+    modifier:Modifier,
     onClick: ()-> Unit,
-    color: Color = Color.White
+
 ) {
     Box(
+
         contentAlignment = Alignment.Center,
         modifier = Modifier
+            .padding(8.dp)
             .clip(RoundedCornerShape(100.dp))
-            .background(color)
+            .background(Color.Gray)
             .clickable {
                 onClick()
             }
-            .then(mod)
+            .then(modifier),
+
+
     ) {
         Text(
+
             text = txt,
             fontSize = 36.sp,
             color = Color.Black
         )
     }
 }
+@Composable
+fun custom_Row(
+ firstButton:String,
+ secondButton:String,
+ ThirdButton:String,
+ fourButton:String
+){
+    Row(modifier = Modifier.fillMaxWidth()) {
+        CustomButton(firstButton,
+            modifier = Modifier
+                .weight(weight = 1f),
+            onClick = {}
+        )
+        CustomButton(secondButton,
+            modifier = Modifier
+                .weight(weight = 1f),
+            onClick = {}
+        )
+        CustomButton(ThirdButton,
+            modifier = Modifier
 
+                .weight(weight = 1f),
+
+
+            onClick = {}
+        )
+        CustomButton(fourButton,
+            modifier = Modifier
+                .weight(weight = 1f),
+            onClick = {}
+        )
+    }
+}
+@Composable
+fun Key_Board()
+{
+
+    custom_Row("1","2","3","X")
+    custom_Row("4","5","6","/")
+    custom_Row("7","8","9","+")
+    Row(modifier = Modifier.fillMaxWidth()) {
+        CustomButton("C",
+            modifier= Modifier
+                .weight(weight = 2f)
+                .padding(5.dp),
+
+            onClick = {}
+        )
+
+        CustomButton("0",
+            modifier= Modifier
+                .weight(weight = 2f)
+                .padding(10.dp),
+            onClick = {}
+        )
+        CustomButton("-",
+            modifier= Modifier
+                .weight(weight = 2f)
+                .padding(5.dp),
+            onClick = {}
+        )
+    }
+
+
+}
 
 @Preview(showBackground = true)
 @Composable
@@ -123,68 +196,18 @@ fun DefaultPreview() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
         ) {
-            Column()
+            Column(Modifier.fillMaxHeight(), horizontalAlignment = Alignment.CenterHorizontally)
            {
-                Row() {
-                    Card()
-                }
-                Row(modifier = Modifier.fillMaxSize(),) {
-                    CustomButton("1",
-                        mod=Modifier
-                            .weight(weight = 2f, fill = false,)
-                            .padding(PaddingValues(5.dp)),
-                        onClick = {}
-                    )
-                    CustomButton("2",
-                        mod=Modifier
-                            .weight(weight = 30f, fill = false,)
-                            .padding(5.dp),
-                        onClick = {}
-                    )
-                    CustomButton("3",
-                        mod=Modifier
-                            .weight(weight = 2f, fill = false,)
-                            .padding(5.dp),
-                        onClick = {}
-                    )
-                    CustomButton("X",
-                        mod=Modifier
-                            .weight(weight = 2f, fill = false,)
-                            .padding(5.dp),
-                        onClick = {}
-                    )
-                    }
-               Row(modifier = Modifier.fillMaxSize(),) {
-                   CustomButton("4",
-                       mod=Modifier
-                           .weight(weight = 2f, fill = false,)
-                           .padding(5.dp),
-                       onClick = {}
-                   )
-                   CustomButton("5",
-                       mod=Modifier
-                           .weight(weight = 2f, fill = false,)
-                           .padding(5.dp),
-                       onClick = {}
-                   )
-                   CustomButton("6",
-                       mod=Modifier
-                           .weight(weight = 2f, fill = false,)
-                           .padding(5.dp),
-                       onClick = {}
-                   )
-                   CustomButton("/",
-                       mod=Modifier
-                           .weight(weight = 2f, fill = false,)
-                           .padding(5.dp),
-                       onClick = {}
-                   )
+               Row() {
+                   Card()
+               }
+               Box(){
+                   Key_Board()
                }
 
 
 
-
-                }
+            }
 
 //                    for(i in DataClass.button_sign_list){
 //                        Button(onClick = {}, modifier = Modifier.weight(weight = 5f,
