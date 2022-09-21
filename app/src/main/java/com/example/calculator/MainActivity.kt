@@ -24,32 +24,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.calculator.ui.theme.CalculatorTheme
 
-//class DataClass()
-//{
-//    // Buttons text
-//    companion object{
-//        val button_sign_list = listOf(
-//            "*",
-//            "+",
-//            "-",
-//            "/",
-//            "%",
-//        )
-//        val button_int_list  = listOf(
-//            "0",
-//            "1",
-//            "2",
-//            "3",
-//            "4",
-//            "5",
-//            "6",
-//            "7",
-//            "8",
-//            "9"
-//        )
-//    }
-//    /////////
-//}
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -123,7 +97,7 @@ fun CustomButton(
     }
 }
 @Composable
-fun custom_Row(
+fun Custom_Row(
  firstButton:String,
  secondButton:String,
  ThirdButton:String,
@@ -159,9 +133,9 @@ fun custom_Row(
 fun Key_Board()
 {
 
-    custom_Row("1","2","3","X")
-    custom_Row("4","5","6","/")
-    custom_Row("7","8","9","+")
+    Custom_Row("1","2","3","X")
+    Custom_Row("4","5","6","/")
+    Custom_Row("7","8","9","+")
     Row(modifier = Modifier.fillMaxWidth()) {
         CustomButton("C",
             modifier= Modifier
@@ -198,12 +172,12 @@ fun DefaultPreview() {
         ) {
             Column(Modifier.fillMaxHeight(), horizontalAlignment = Alignment.CenterHorizontally)
            {
-               Row() {
-                   Card()
-               }
-               Box(){
-                   Key_Board()
-               }
+
+               Card()
+
+
+               Key_Board()
+
 
 
 
