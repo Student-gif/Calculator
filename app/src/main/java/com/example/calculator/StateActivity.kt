@@ -34,14 +34,24 @@ class StateActivity (){
             }
             if(res[i].toIntOrNull() == null)
             {
-                SetChar(res[i-1].toInt(),i.toString(),res[+i].toInt())
+                SetChar(res[i-1].toInt(),i.toString(),res[i+1].toInt())
             }
 
         }
     }
-    fun firstStepCheck(res:String)
+    fun firstStepCheck(res:List<String>)
     {
+        for(i in res)
+        {
+            if(i=="(")
+            {
+                while (i!=")")
+                {
+                    i+1
+                }
+            }
 
+        }
     }
 
 }
