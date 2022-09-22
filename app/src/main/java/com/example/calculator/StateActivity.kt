@@ -20,10 +20,28 @@ class StateActivity (){
     }
     fun destructor(data:String)
     {
-        val res = data.split("+-*/")
-        for(i in res){
-            i.toIntOrNull()
+        val res = data.split("+-*/()")
+        for(i in 0..res.size){
+            if(res[i] =="(")
+            {
+                while (res[i]!=")")
+                {
+                    if(res[i].toIntOrNull() == null)
+                    {
+                        SetChar(res[i-1].toInt(),i.toString(),res[+i].toInt())
+                    }
+                }
+            }
+            if(res[i].toIntOrNull() == null)
+            {
+                SetChar(res[i-1].toInt(),i.toString(),res[+i].toInt())
+            }
+
         }
+    }
+    fun firstStepCheck(res:String)
+    {
+
     }
 
 }
