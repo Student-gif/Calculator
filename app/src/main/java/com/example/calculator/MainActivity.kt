@@ -64,7 +64,10 @@ fun Card() {
 
     )
     {
-        Greeting("Android")
+
+        Greeting(StateClass.firstOper.toString())
+
+
     }
 }
 @Composable
@@ -165,6 +168,8 @@ fun Key_Board()
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
+    val test = StateActivity()
+    test.destructor("1+2+3*4/(12-6)")
     CalculatorTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -172,15 +177,8 @@ fun DefaultPreview() {
         ) {
             Column(Modifier.fillMaxHeight(), horizontalAlignment = Alignment.CenterHorizontally)
            {
-
                Card()
-
-
                Key_Board()
-
-
-
-
             }
 
 //                    for(i in DataClass.button_sign_list){

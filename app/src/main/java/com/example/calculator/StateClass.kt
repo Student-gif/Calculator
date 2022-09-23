@@ -1,9 +1,12 @@
 package com.example.calculator
 
-class StateClass(firstN:Int,sign:String,seconN:Int){
-    val firstOper:Int = 0
-    val sign:String = ""
-    val SecondOper:Int = 0
+class StateClass(firstN:Char,sign:Char,seconN:Char){
+    companion object{
+        var firstOper:Char = '\u0000'
+        val sign:Char = '\u0000'
+        val SecondOper:Char = '\u0000'
+    }
+
 }
 
 
