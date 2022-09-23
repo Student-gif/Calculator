@@ -169,7 +169,7 @@ fun Key_Board()
 @Composable
 fun DefaultPreview() {
     val test = StateActivity()
-    test.destructor("1+2+3*4/(12-6)")
+    test.analitic("1+2+3*4/(12-6)")
     CalculatorTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),

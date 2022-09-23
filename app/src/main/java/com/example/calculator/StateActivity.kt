@@ -6,13 +6,16 @@ import java.lang.Thread.State
 
 class StateActivity (){
     val eventList:MutableList<StateClass> = mutableListOf<StateClass>()
+    val sfv = Regex("\\([^)]*\\)").findAll("(23+32)*(231+2)")
+
     fun analitic(data:String)
     {
 
+        StateClass.firstOper= sfv.toList()[1].value
         val FindFirst = Regex("\\([^)]*\\)")
 
-        val sfv =  FindFirst.matches(data)
         val findSecond = Regex("[0-9]+\\^[0-9]")
+        val ssl = findSecond.matches(data)
     }
 }
 
